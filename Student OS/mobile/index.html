@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(){try{var t=localStorage.getItem('studentos_theme');if(t)document.documentElement.dataset.theme=t;var f=localStorage.getItem('studentos_font');if(f)document.documentElement.dataset.font=f;}catch(e){}})();</script>
+<title>Student OS — Connexion</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%238b6bff'/%3E%3Cpath d='M4 17V7l8-4 8 4v10l-8 4-8-4Z' fill='none' stroke='white' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M4 7l8 4 8-4M12 11v10' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="../shared/css/onboarding.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="onboard-body mobile-onboard">
+  <div class="mesh-bg"><span></span><span></span><span></span></div>
+
+  <div class="onboard-shell">
+    <div class="onboard-brand">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></span>
+      Student OS
+    </div>
+
+    <div class="onboard-dots">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+
+    <div class="onboard-stage">
+
+      <section class="step" data-step="1">
+        <h1 data-i18n="onboarding.login.title">Content de te revoir</h1>
+        <p class="lead" data-i18n="onboarding.login.lead">Démo — aucune donnée n'est envoyée. Tout champ te mène directement à l'étape suivante.</p>
+        <div class="field">
+          <label for="email" data-i18n="onboarding.login.email">Adresse e-mail</label>
+          <input id="email" type="email" placeholder="camille.bernard@univ-lyon2.fr" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="pwd" data-i18n="onboarding.login.pwd">Mot de passe</label>
+          <input id="pwd" type="password" placeholder="••••••••" autocomplete="off">
+        </div>
+        <button class="btn btn-primary btn-block" data-next data-i18n="onboarding.login.submit">Se connecter</button>
+        <div class="divider" data-i18n="onboarding.login.or">ou</div>
+        <div class="sso-row">
+          <button class="btn" data-next><img src="https://cdn.simpleicons.org/google" alt=""> Google</button>
+          <button class="btn" data-next><img src="https://cdn.simpleicons.org/apple/ffffff" alt=""> Apple</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="2">
+        <h1 data-i18n="onboarding.profile.title">Parle-nous de tes études</h1>
+        <p class="lead" data-i18n="onboarding.profile.lead">Pour personnaliser ton tableau de bord. Démo — rien n'est envoyé.</p>
+        <div class="field">
+          <label for="profileSchoolInput" data-i18n="onboarding.profile.school">Ton établissement</label>
+          <div class="school-search" id="schoolSearch">
+            <input type="text" id="profileSchoolInput" autocomplete="off" data-i18n-placeholder="onboarding.profile.schoolPlaceholder" placeholder="Ex. Université Lyon 2, Sciences Po, Isara-Lyon...">
+            <div class="school-results" id="schoolResults"></div>
+          </div>
+          <p class="field-hint" data-i18n="onboarding.profile.schoolHint">Recherche en direct dans l'annuaire officiel de l'enseignement supérieur (data.enseignementsup-recherche.gouv.fr).</p>
+        </div>
+        <div class="field">
+          <label for="profileField" data-i18n="onboarding.profile.field">Filière / domaine d'études</label>
+          <select id="profileField">
+            <option>Économie &amp; Gestion</option><option>Droit</option><option>Lettres &amp; Langues</option>
+            <option>Sciences &amp; Ingénierie</option><option>Informatique</option><option>Médecine &amp; Santé</option>
+            <option>Arts &amp; Design</option><option>Sciences humaines</option><option>Communication &amp; Marketing</option>
+            <option>Psychologie</option><option>Sciences politiques</option><option>Autre filière</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="profileLevel" data-i18n="onboarding.profile.level">Niveau</label>
+          <select id="profileLevel">
+            <option>L1</option><option>L2</option><option selected>L3</option><option>M1</option><option>M2</option>
+            <option>BTS/DUT</option><option>École / Prépa</option><option>Doctorat</option>
+          </select>
+        </div>
+        <div class="step-actions">
+          <button class="btn btn-ghost" data-prev data-i18n="common.back">Retour</button>
+          <button class="btn btn-primary" data-next data-i18n="common.continue">Continuer</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="3">
+        <h1 data-i18n="onboarding.prefs.title">Personnalise ton affichage</h1>
+        <p class="lead" data-i18n="onboarding.prefs.lead">Thème, police et langue — modifiable à tout moment dans les paramètres.</p>
+        <div class="field">
+          <label data-i18n="settings.appearance">Apparence</label>
+          <div class="theme-switch" id="onboardThemeSwitch">
+            <button type="button" class="theme-opt" data-theme="dark"><span id="onbThemeIconDark"></span><span data-i18n="settings.dark">Sombre</span></button>
+            <button type="button" class="theme-opt" data-theme="light"><span id="onbThemeIconLight"></span><span data-i18n="settings.light">Clair</span></button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="onboardFont" data-i18n="settings.font">Police d'écriture</label>
+          <select id="onboardFont">
+            <option value="sans">Inter</option>
+            <option value="rounded">Nunito</option>
+            <option value="serif">Lora</option>
+            <option value="mono">JetBrains Mono</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="onboardLang" data-i18n="settings.language">Langue</label>
+          <div id="onboardLang"></div>
+        </div>
+        <div class="step-actions">
+          <button class="btn btn-ghost" data-prev data-i18n="common.back">Retour</button>
+          <button class="btn btn-primary" data-next data-i18n="common.continue">Continuer</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="4">
+        <h1 data-i18n="onboarding.connect.title">Connecte tes services</h1>
+        <p class="lead" data-i18n="onboarding.connect.lead">Student OS centralise tes comptes pour te donner une vue d'ensemble. Démo visuelle uniquement.</p>
+        <div id="connectGrid"></div>
+        <div class="step-actions">
+          <button class="btn btn-ghost" data-prev data-i18n="common.back">Retour</button>
+          <button class="btn btn-primary" data-next data-i18n="common.continue">Continuer</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="5">
+        <div class="confirm-hero">
+          <div class="ring-wrap"><span class="check-badge"></span></div>
+          <h1 data-i18n="onboarding.confirm.title">Tout est prêt</h1>
+          <p class="lead" data-i18n="onboarding.confirm.lead">Ton espace Student OS est configuré. Voici ce qui t'attend.</p>
+        </div>
+        <div class="confirm-list stagger">
+          <div class="row">ICON_CHECK <span data-i18n="onboarding.confirm.f1">Argent, logement, transport et santé réunis dans « Vie »</span></div>
+          <div class="row">ICON_CHECK <span data-i18n="onboarding.confirm.f2">Alertes budget et échéances administratives automatiques</span></div>
+          <div class="row">ICON_CHECK <span data-i18n="onboarding.confirm.f3">Student AI pour croiser toutes tes données au quotidien</span></div>
+        </div>
+        <div class="step-actions">
+          <button class="btn btn-primary btn-block" data-enter="app.html" data-i18n="onboarding.enter">Entrer dans Student OS</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../shared/js/data.js"></script>
+  <script src="../shared/js/logos.js"></script>
+  <script src="../shared/js/icons.js"></script>
+  <script src="../shared/js/i18n.js"></script>
+  <script src="../shared/js/onboarding.js"></script>
+  <script>
+    document.querySelector('.check-badge').innerHTML = svgIcon('check');
+    document.querySelectorAll('.confirm-list .row').forEach((row) => {
+      row.innerHTML = row.innerHTML.replace('ICON_CHECK', svgIcon('check'));
+    });
+  </script>
+</body>
+</html>

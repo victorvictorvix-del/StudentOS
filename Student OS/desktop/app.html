@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('studentos_theme');if(t)document.documentElement.dataset.theme=t;var f=localStorage.getItem('studentos_font');if(f)document.documentElement.dataset.font=f;}catch(e){}})();</script>
+<title>Student OS</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%238b6bff'/%3E%3Cpath d='M4 17V7l8-4 8 4v10l-8 4-8-4Z' fill='none' stroke='white' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M4 7l8 4 8-4M12 11v10' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../shared/css/tokens.css">
+<link rel="stylesheet" href="css/desktop.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#8b6bff"/>
+        <stop offset="100%" stop-color="#4f8cff"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></span>
+        <span>Student OS</span>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <span class="nav-pill" id="navPill"></span>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button class="sidebar-user" id="userMenuBtn">
+          <span class="avatar" id="sidebarAvatar"></span>
+          <span class="sidebar-user-info">
+            <span class="name" id="sidebarName"></span>
+            <span class="school" id="sidebarSchool"></span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-col">
+      <header class="topbar">
+        <div class="topbar-search" id="topbarSearch">
+          <span id="searchIcon"></span>
+          <input type="text" id="searchInput" data-i18n-placeholder="common.search" autocomplete="off">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="bellBtn"><span id="bellIcon"></span><span class="dot-badge"></span></button>
+          <button class="icon-btn" id="settingsBtn"><span id="settingsIcon"></span></button>
+        </div>
+      </header>
+
+      <main class="view-root" id="viewRoot"></main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="settingsBackdrop">
+    <div class="modal card">
+      <div class="modal-head">
+        <h2 data-i18n="settings.title">Paramètres</h2>
+        <button class="icon-btn" id="closeSettings"></button>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.profile">Profil</p>
+        <div class="settings-row">
+          <span class="avatar" id="settingsAvatar"></span>
+          <div>
+            <div class="settings-name" id="settingsName"></div>
+            <div class="settings-sub" id="settingsSchool"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.notifications">Notifications</p>
+        <div class="settings-toggle-row"><span>Alertes budget</span><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+        <div class="settings-toggle-row"><span>Échéances administratives</span><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+        <div class="settings-toggle-row"><span>Résumé quotidien Student AI</span><label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.appearance">Apparence</p>
+        <div class="theme-switch" id="themeSwitch">
+          <button class="theme-opt" data-theme="dark"><span class="theme-opt-icon" id="themeIconDark"></span><span data-i18n="settings.dark">Sombre</span></button>
+          <button class="theme-opt" data-theme="light"><span class="theme-opt-icon" id="themeIconLight"></span><span data-i18n="settings.light">Clair</span></button>
+        </div>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.font">Police d'écriture</p>
+        <select id="fontSelect" class="settings-select">
+          <option value="sans">Inter</option>
+          <option value="rounded">Nunito</option>
+          <option value="serif">Lora</option>
+          <option value="mono">JetBrains Mono</option>
+        </select>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.language">Langue</p>
+        <div id="langSelect"></div>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.subscription">Abonnement</p>
+        <button class="btn btn-ghost btn-block" id="seePricingBtn" data-i18n="settings.seePricing">Voir les formules</button>
+      </div>
+
+      <div class="settings-block">
+        <p class="settings-label" data-i18n="settings.connections">Comptes connectés</p>
+        <button class="btn btn-ghost btn-block" id="goConnections" data-i18n="settings.manageConnections">Gérer les connexions</button>
+      </div>
+
+      <button class="btn btn-block" id="logoutBtn" data-i18n="common.logout">Se déconnecter</button>
+    </div>
+  </div>
+
+  <script src="../shared/js/data.js"></script>
+  <script src="../shared/js/logos.js"></script>
+  <script src="../shared/js/icons.js"></script>
+  <script src="../shared/js/i18n.js"></script>
+  <script src="../shared/js/views.js"></script>
+  <script src="js/desktop.js"></script>
+</body>
+</html>
